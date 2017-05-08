@@ -15,12 +15,17 @@ class CodeServer extends React.Component
 }
 class CodeClient extends React.Component
 {
+  constructor(props)
+  {
+    super(props);
+    this.state={code: 'ABC'};
+  }
   render()
   {
     return(
       <div class="codeClient">
-        <h4>{this.props.code}</h4>
-        <button id={this.props.code}>Use</button>
+        <h4>{this.state.code}</h4>
+        <button id={this.props.code} onClick={() => this.setState({code: 'X'})}>Use</button>
       </div>
     );
   }
@@ -45,7 +50,7 @@ class ClientPanel extends React.Component
 {
   getClientCode(code)
   {
-    return <CodeClient code={code}/>
+    return <CodeClient /*code={code}*/ />
   }
   render()
   {
